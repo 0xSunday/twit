@@ -5,6 +5,10 @@ const BottonNav = () => {
   return (
     <div className="px-3 bg-black  p-2 z-20 border-t-[1px] items-center  fixed bottom-0 left-0 right-0 flex  sm:hidden w-full justify-around ">
       {bottemNavElement.map((d, i) =>
+
+
+
+
         d.name === "Tweet" ? (
           <div
             key={i}

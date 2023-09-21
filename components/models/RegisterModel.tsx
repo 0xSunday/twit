@@ -83,10 +83,10 @@ const RegisterModel = () => {
 
       toast.success("Account created");
 
-      // await signIn("credentials", {
-      //   email,
-      //   password,
-      // });
+      await signIn("credentials", {
+        email,
+        password,
+      });
       registerModel.onClose();
     } catch (error) {
       console.error("error at useRegister", error);

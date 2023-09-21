@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 // import { sidebarElement } from "../data";
 import Link from "next/link";
 import Image from "next/image";
@@ -8,8 +8,15 @@ import { BsPencilSquare } from "react-icons/bs";
 // import useRegisterModel from "./hooks/useRegisterModel";
 import { sidebarElement } from "@/data";
 import useRegisterModel from "./hooks/useRegisterModel";
+import LogoutModel from "./LogoutButton";
+import LogoutButton from "./LogoutButton";
 
 const LeftSidebarIons = () => {
+  const [showConfirmation, setShowConfirmation] = useState(false);
+
+  const handleClick = () => {
+    setShowConfirmation(true);
+  };
   const registerModel = useRegisterModel();
   return (
     <div>
@@ -60,7 +67,14 @@ const LeftSidebarIons = () => {
           </div>
         </div>
 
-        <div className="flex items-center w-full hover:bg-slate-900 rounded-full px-1 py-2">
+        {showConfirmation && (
+          <LogoutButton setShowConfirmation={setShowConfirmation} />
+        )}
+
+        <div
+          onClick={handleClick}
+          className="flex items-center w-full hover:bg-slate-900 rounded-full px-1 py-2"
+        >
           <Image
             className="w-11 rounded-full"
             src="/logo.webp"

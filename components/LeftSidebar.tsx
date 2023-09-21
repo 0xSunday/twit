@@ -1,9 +1,18 @@
+"use client";
+
 import Image from "next/image";
 import React from "react";
 import Link from "next/link";
 import { sidebarElement } from "@/data";
+import { useState } from "react";
+import LogoutButton from "./LogoutButton";
 
 const LeftSidebar = () => {
+  const [showConfirmation, setShowConfirmation] = useState(false);
+
+  const handleClick = () => {
+    setShowConfirmation(true);
+  };
   return (
     <div className="hidden xl:flex justify-between w-[16.5rem] mx-3 pt-4 pb-4  border-r-[2px] border-r-[rgb(29,31,36)] h-[100vh] flex-col">
       <div className="flex flex-col">
@@ -53,7 +62,13 @@ const LeftSidebar = () => {
         </div>
       </div>
 
-      <div className="flex gap-4 items-center w-full hover:bg-slate-900 rounded-full px-1 py-2">
+      {showConfirmation && (
+        <LogoutButton setShowConfirmation={setShowConfirmation} />
+      )}
+      <div
+        onClick={handleClick}
+        className="flex gap-4 items-center w-full hover:bg-slate-900 rounded-full px-1 py-2"
+      >
         <Image
           className="w-11 h-11 rounded-full"
           src="/profile3.jpeg"

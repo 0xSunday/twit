@@ -1,14 +1,25 @@
+"use client";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
+import LogoutButton from "./LogoutButton";
 
 const Nav = () => {
+  const [showConfirmation, setShowConfirmation] = useState(false);
+
+  const handleClick = () => {
+    setShowConfirmation(true);
+  };
   return (
     <div className=" px-3 border-b-[1px] border-r-[rgb(29,31,36)] flex  sticky backdrop-blur-xl flex-col right-0 left-0 top-0 ">
+      {showConfirmation && (
+        <LogoutButton setShowConfirmation={setShowConfirmation} />
+      )}
       <div className="hidden sm:block">
         <p className="text-2xl font-bold px-4 py-3">Home</p>
       </div>
       <div className="flex h-16 items-center justify-between sm:hidden ">
         <Image
+          onClick={handleClick}
           className="w-11 rounded-full"
           src="/logo.webp"
           width={500}
