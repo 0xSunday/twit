@@ -8,12 +8,8 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex z-0 flex-auto justify-center items-center mx-auto w-full ">
-      <BottonNav />
-      <LeftSidebar />
-      <LeftSidebarIons />
+    <div className="">
       <MiddleSection />
-      <RightSection />
     </div>
   );
 }

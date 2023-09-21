@@ -6,6 +6,10 @@ import RegisterModel from "@/components/models/RegisterModel";
 import SessionProvider from "@/components/SessionProvider";
 import { getServerSession } from "next-auth";
 import { Toaster } from "react-hot-toast";
+import BottonNav from "@/components/BottonNav";
+import LeftSidebar from "@/components/LeftSidebar";
+import LeftSidebarIons from "@/components/LeftSidebarIons";
+import RightSection from "@/components/RightSection";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,10 +29,16 @@ export default async function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <SessionProvider session={session}>
-          <Toaster />
-          <RegisterModel />
-          <LoginModel />
-          {children}
+          <div className="flex z-0 flex-auto justify-center items-center mx-auto w-full ">
+            <Toaster />
+            <RegisterModel />
+            <LoginModel />
+            <BottonNav />
+            <LeftSidebar />
+            <LeftSidebarIons />
+            {children}
+            <RightSection />
+          </div>
         </SessionProvider>
       </body>
     </html>

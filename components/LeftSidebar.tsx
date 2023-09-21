@@ -6,10 +6,11 @@ import Link from "next/link";
 import { sidebarElement } from "@/data";
 import { useState } from "react";
 import LogoutButton from "./LogoutButton";
+import useCurrentUser from "./hooks/useCurrentUser";
 
 const LeftSidebar = () => {
   const [showConfirmation, setShowConfirmation] = useState(false);
-
+  const { data: currentUser } = useCurrentUser();
   const handleClick = () => {
     setShowConfirmation(true);
   };
@@ -65,22 +66,25 @@ const LeftSidebar = () => {
       {showConfirmation && (
         <LogoutButton setShowConfirmation={setShowConfirmation} />
       )}
-      <div
-        onClick={handleClick}
-        className="flex gap-4 items-center w-full hover:bg-slate-900 rounded-full px-1 py-2"
-      >
-        <Image
-          className="w-11 h-11 rounded-full"
-          src="/profile3.jpeg"
-          width={100}
-          height={100}
-          alt="Picture of the author"
-        />
-        <div>
-          <p>Sunil Reddy</p>
-          <p className="text-gray-400">0xSunilReddy</p>
+
+      {currentUser && (
+        <div
+          onClick={handleClick}
+          className="flex gap-4 items-center w-full hover:bg-slate-900 rounded-full px-1 py-2"
+        >
+          <Image
+            className="w-11 h-11 rounded-full"
+            src="/profile3.jpeg"
+            width={100}
+            height={100}
+            alt="Picture of the author"
+          />
+          <div>
+            <p>Sunil Reddy</p>
+            <p className="text-gray-400">0xSunilReddy</p>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

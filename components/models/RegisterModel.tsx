@@ -26,49 +26,6 @@ const RegisterModel = () => {
     loginModel.onOpen();
   }, [isLoading, registerModel, loginModel]);
 
-  // const onSubmit = async () => {
-  //   try {
-  //     setIsLoading(true);
-  //     console.log("useRegister");
-
-  //     const resposnse = await fetch("/api/register", {
-  //       method: "POST",
-  //       body: JSON.stringify({
-  //         name: name,
-  //         username: username,
-  //         email: email,
-  //         password: password,
-  //       }),
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //     });
-  //     // const data = resposnse.json();
-  //     if (!resposnse.ok) {
-  //       throw new Error("something went wong !");
-  //     }
-  //     // await axios.post("/api/register", {
-  //     //   name: name,
-  //     //   username: username,
-  //     //   email: email,
-  //     //   password: password,
-  //     // });
-
-  //     toast.success("Account created");
-
-  //     // await signIn("credentials", {
-  //     //   email,
-  //     //   password,
-  //     // });
-  //     registerModel.onClose();
-  //   } catch (error) {
-  //     console.error("error at useRegister", error);
-  //     toast.error("Something went wrong");
-  //   } finally {
-  //     setIsLoading(false);
-  //   }
-  // };
-
   const onSubmit = useCallback(async () => {
     try {
       setIsLoading(true);
@@ -120,6 +77,7 @@ const RegisterModel = () => {
       />
       <Input
         placeHolder="password"
+        type="password"
         onChange={(e) => setPassword(e.target.value)}
         value={password}
         disabled={isLoading}

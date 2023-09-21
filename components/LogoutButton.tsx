@@ -1,11 +1,12 @@
 "use client";
+import { signOut } from "next-auth/react";
 import { useState } from "react";
 
 const LogoutButton = ({ setShowConfirmation }) => {
   // const [showConfirmation, setShowConfirmation] = useState(false);
 
   const handleLogout = () => {
-    // Implement your logout logic here.
+    signOut();
   };
 
   const handleConfirmLogout = () => {
@@ -19,7 +20,7 @@ const LogoutButton = ({ setShowConfirmation }) => {
     overflow-y-auto fixed inset-0 z-50 outline-none focous:outline-none
      bg-emerald-950 bg-opacity-90 text-center text-white"
     >
-      <div className="bg-black  p-5 rounded-lg relative text-center items-center justify-center w-full md:w-1/4 mx-auto lg:max-w-3xl h-full h-auto">
+      <div className="bg-black  p-5 rounded-lg relative text-center items-center justify-center w-full md:w-1/4 mx-auto lg:max-w-3xl  h-auto">
         <p className="pb-4 text-2xl">Are you sure you want to log out ?</p>
         <button
           onClick={handleConfirmLogout}
