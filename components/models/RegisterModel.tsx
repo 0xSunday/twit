@@ -8,8 +8,15 @@ import { toast } from "react-hot-toast";
 import { signIn } from "next-auth/react";
 import useLoginModel from "../hooks/useLoginModel";
 import useRegisterModel from "../hooks/useRegisterModel";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
+
+import { useSession } from "next-auth/react";
+import { Session } from "inspector";
 const RegisterModel = () => {
+  const { data: sesstion, status } = useSession();
+
+  console.log(sesstion);
+  const router = useRouter();
   const loginModel = useLoginModel();
   const registerModel = useRegisterModel();
   const [email, setEmail] = useState("");
@@ -40,10 +47,13 @@ const RegisterModel = () => {
 
       toast.success("Account created");
 
-      await signIn("credentials", {
+      signIn("credentials", {
         email,
         password,
+        redirect: false,
       });
+      // router.push("/");
+      setIsLoading(false);
       registerModel.onClose();
     } catch (error) {
       console.error("error at useRegister", error);

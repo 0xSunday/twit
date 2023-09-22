@@ -5,6 +5,7 @@ import Model from "../Model";
 import useLoginModel from "../hooks/useLoginModel";
 import useRegisterModel from "../hooks/useRegisterModel";
 import { signIn } from "next-auth/react";
+import { toast } from "react-hot-toast";
 
 const LoginModel = () => {
   const loginModel = useLoginModel();
@@ -25,12 +26,15 @@ const LoginModel = () => {
     try {
       setIsLoading(true);
 
-      await signIn("credentials", {
+      signIn("credentials", {
         email,
         password,
+        redirect: false,
       });
-      loginModel.onClose;
+      // toast.success("Login successful");
+      loginModel.onClose();
     } catch (error) {
+      toast.success("faild to login");
       console.log(error);
     } finally {
       setIsLoading(false);
