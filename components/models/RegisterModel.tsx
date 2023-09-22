@@ -8,7 +8,7 @@ import { toast } from "react-hot-toast";
 import { signIn } from "next-auth/react";
 import useLoginModel from "../hooks/useLoginModel";
 import useRegisterModel from "../hooks/useRegisterModel";
-
+import { useRouter } from "next/router";
 const RegisterModel = () => {
   const loginModel = useLoginModel();
   const registerModel = useRegisterModel();
