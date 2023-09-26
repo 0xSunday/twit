@@ -32,11 +32,16 @@ const LoginModel = () => {
         redirect: false,
       });
 
-      if (response.error) {
-        toast.error("Failed to login");
+      if (response) {
+        if (response.error) {
+          toast.error("Failed to login");
+        } else {
+          toast.success("Login successful");
+          loginModel.onClose();
+        }
       } else {
-        toast.success("Login successful");
-        loginModel.onClose();
+        // Handle the case where response is undefined
+        toast.error("No response received from the server");
       }
     } catch (error) {
       console.error(error);
