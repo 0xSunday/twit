@@ -12,10 +12,13 @@ import { useRouter } from "next/navigation";
 
 import { useSession } from "next-auth/react";
 import { Session } from "inspector";
+
+
+
 const RegisterModel = () => {
   const { data: sesstion, status } = useSession();
 
-  console.log(sesstion);
+  // console.log(sesstion);
   const router = useRouter();
   const loginModel = useLoginModel();
   const registerModel = useRegisterModel();
@@ -36,7 +39,7 @@ const RegisterModel = () => {
   const onSubmit = useCallback(async () => {
     try {
       setIsLoading(true);
-      console.log("useRegister");
+      // console.log("useRegister");
 
       await axios.post("/api/registers/", {
         name,
