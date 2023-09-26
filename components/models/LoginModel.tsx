@@ -33,15 +33,12 @@ const LoginModel = () => {
       });
 
       if (response.error) {
-        // Handle login failure here
         toast.error("Failed to login");
       } else {
-        // Login was successful
         toast.success("Login successful");
         loginModel.onClose();
       }
     } catch (error) {
-      // Handle any unexpected errors
       console.error(error);
       toast.error("An error occurred while logging in");
     } finally {

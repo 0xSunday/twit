@@ -1,9 +1,4 @@
-// import { NextApiRequest } from "next";
-// import { type NextRequest } from "next/server";
-// import { NextResponse } from "next/server";
 
-// import { getServerSession } from "next-auth";
-// import { request } from "http";
 import prisma from "@/libs/prismadb";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
