@@ -40,7 +40,6 @@ const LoginModel = () => {
           loginModel.onClose();
         }
       } else {
-        // Handle the case where response is undefined
         toast.error("No response received from the server");
       }
     } catch (error) {
