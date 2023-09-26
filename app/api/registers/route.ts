@@ -25,9 +25,13 @@ export async function POST(req: Request) {
       },
     });
     console.log("User created:", user);
-    return new Response("ok");
+    return new Response("ok", {
+      status: 200,
+    });
   } catch (error) {
     console.error("Error:", error);
-    return new Response("not ok");
+    return new Response("not ok", {
+      status: 400,
+    });
   }
 }

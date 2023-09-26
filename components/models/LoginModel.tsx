@@ -26,16 +26,24 @@ const LoginModel = () => {
     try {
       setIsLoading(true);
 
-      signIn("credentials", {
+      const response = await signIn("credentials", {
         email,
         password,
         redirect: false,
       });
-      // toast.success("Login successful");
-      loginModel.onClose();
+
+      if (response.error) {
+        // Handle login failure here
+        toast.error("Failed to login");
+      } else {
+        // Login was successful
+        toast.success("Login successful");
+        loginModel.onClose();
+      }
     } catch (error) {
-      toast.success("faild to login");
-      console.log(error);
+      // Handle any unexpected errors
+      console.error(error);
+      toast.error("An error occurred while logging in");
     } finally {
       setIsLoading(false);
     }
