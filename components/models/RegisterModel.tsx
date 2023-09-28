@@ -13,8 +13,6 @@ import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { Session } from "inspector";
 
-
-
 const RegisterModel = () => {
   const { data: sesstion, status } = useSession();
 
@@ -78,12 +76,14 @@ const RegisterModel = () => {
       <Input
         placeHolder="username"
         onChange={(e) => setUsername(e.target.value)}
+        // type=""
         value={username}
         disabled={isLoading}
       />
 
       <Input
         placeHolder="email"
+        type="email"
         onChange={(e) => setEmail(e.target.value)}
         value={email}
         disabled={isLoading}
