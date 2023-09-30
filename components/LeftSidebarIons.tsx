@@ -1,11 +1,8 @@
 "use client";
 import React, { useState } from "react";
-// import { sidebarElement } from "../data";
 import Link from "next/link";
 import Image from "next/image";
-// import { FaRegPenToSquare } from "react-icons/fa";
 import { BsPencilSquare } from "react-icons/bs";
-// import useRegisterModel from "./hooks/useRegisterModel";
 import { sidebarElement } from "@/data";
 import useRegisterModel from "./hooks/useRegisterModel";
 import LogoutModel from "./LogoutButton";

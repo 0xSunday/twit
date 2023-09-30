@@ -3,11 +3,10 @@ import { signOut } from "next-auth/react";
 import { useState } from "react";
 
 type LogoutButtonProps = {
-  setShowConfirmation: (show: boolean) => void; // Adjust the type to match your setShowConfirmation function
+  setShowConfirmation: (show: boolean) => void; 
 };
 
 const LogoutButton = ({ setShowConfirmation }: LogoutButtonProps) => {
-  // const [showConfirmation, setShowConfirmation] = useState(false);
 
   const handleLogout = () => {
     signOut();

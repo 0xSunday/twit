@@ -15,9 +15,6 @@ const MiddleSection = () => {
       <Post />
       <Post />
       <Post />
-      <Post />
-      <Post />
-      <Post />
     </div>
   );
 };
