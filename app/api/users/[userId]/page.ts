@@ -7,7 +7,7 @@ export async function GET(
   if (request.method !== "GET") {
     return new Response("Method not allowed", {
       status: 405,
-    })
+    });
   }
 
   try {
