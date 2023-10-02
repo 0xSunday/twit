@@ -2,8 +2,12 @@ import React from "react";
 import Search from "./Search";
 import { rigtData } from "@/data";
 import Image from "next/image";
-
+import useUsers from "./hooks/useUsers";
 const RightSection = () => {
+  const { data: users } = useUsers();
+  if (users.length > 0) {
+    return null;
+  }
   return (
     <div className="w-[24rem] px-3 py-3  flex-col gap-5  hidden lg:flex  h-[100vh]">
       <Search />
