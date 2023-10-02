@@ -1,12 +1,14 @@
 import { rigtData } from "@/data";
 import Image from "next/image";
 import Search from "./Search";
-import useUsers from './hooks/useUsers';
+import useUsers from "./hooks/useUsers";
+
+// import useUser from "./hooks/useUser"
 
 const RightSection = () => {
   // const { data: users = [] } = useUsers();
 
-  // if (users.length === 0) {
+  // if (users?.length === 0) {
   //   return null;
   // }
   return (

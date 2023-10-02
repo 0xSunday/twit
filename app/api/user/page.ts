@@ -1,5 +1,6 @@
 import { type NextRequest } from "next/server";
-import prisma from "@/libs/prismadb";
+// import prisma from "@/libs/prismadb";
+import prisma from "../../../libs/prismadb";
 export async function GET(request: NextRequest) {
   if (request.method !== "GET") {
     return new Response("Method not allowed", {
@@ -13,6 +14,7 @@ export async function GET(request: NextRequest) {
         createdAt: "desc",
       },
     });
+    console.log("users", JSON.stringify(users));
     return new Response(JSON.stringify({ users }), {
       status: 200,
     });
