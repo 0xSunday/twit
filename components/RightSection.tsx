@@ -4,11 +4,11 @@ import Search from "./Search";
 import useUsers from './hooks/useUsers';
 
 const RightSection = () => {
-  const { data: users = [] } = useUsers();
+  // const { data: users = [] } = useUsers();
 
-  if (users.length === 0) {
-    return null;
-  }
+  // if (users.length === 0) {
+  //   return null;
+  // }
   return (
     <div className="w-[24rem] px-3 py-3  flex-col gap-5  hidden lg:flex  h-[100vh]">
       <Search />
