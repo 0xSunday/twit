@@ -1,4 +1,4 @@
-import { NextRequest } from "next/server";
+import { type NextRequest } from "next/server";
 import prisma from "@/libs/prismadb";
 export async function GET(request: NextRequest) {
   if (request.method !== "GET") {
